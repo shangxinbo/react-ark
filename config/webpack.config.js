@@ -2,7 +2,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const config = require('./config/build')
+const config = require('./build')
 
 module.exports = {
     context: config.appSrc, 
@@ -29,7 +29,7 @@ module.exports = {
     },
     
     //如何生成 source map https://doc.webpack-china.org/configuration/devtool/
-    devtool: 'inline-source-map',
+    devtool:  'inline-source-map',
     
     //HMR server 
     devServer: {
