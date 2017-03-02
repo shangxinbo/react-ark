@@ -4,6 +4,7 @@ import store from './redux/store'
 import actions from './redux/action'
 import Header from './common/header'
 import common from './css/common.css'
+import footer from './css/footer.css'
 
 class App extends Component {
     handleClick = () => {
