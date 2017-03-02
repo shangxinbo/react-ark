@@ -13,6 +13,7 @@ module.exports = {
     appBuild: resolveApp('dist'),
     appPublic: resolveApp('public'),
     appIco: resolveApp('public/favicon.ico'),
+    appHtml: '../public/index.html',
     appIndexJs: './index.js',
     appPackageJson: resolveApp('package.json'),
     appSrc: resolveApp('src'),

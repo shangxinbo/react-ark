@@ -78,6 +78,7 @@ module.exports = {
             title:config.appName,
             favicon:config.appIco,
             inject: true,
+            template:config.appHtml,
             hash:true
         }),
         
