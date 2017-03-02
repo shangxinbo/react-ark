@@ -1,0 +1,39 @@
+#count{
+	background-color: #2A509A;
+	line-height: 5rem;
+	margin: .5rem 4rem;
+	color: #FFFFFF;
+}
+#count span{
+	display: inline-block;
+	font-size: 3rem;
+}
+.sceneGrop{
+	padding: 2rem;
+}
+.scene{
+	margin: 1rem;
+}
+.path{
+	margin: 1rem;
+	font-size: 1.6rem;
+}
+.scene .btn span,.btnGroup .btnItem{
+	display: inline-block;
+	line-height: 3rem;
+	padding: 0 .5rem 0 .5rem;
+    text-align: center;
+    background-color: #2A509A;
+    font-size: 1.8rem;
+    color: #fff;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+.btnGroup .btnItem{
+	margin-right: 2rem;
+}
+.btnGroup{
+	padding-top: 2rem;
+	margin-top: 2rem;
+	border-top: #AEAEAE solid 1px;
+}

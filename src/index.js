@@ -1,25 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { browserHistory, IndexRoute, Router, Route, Link } from 'react-router'
 
-import { AppContainer } from 'react-hot-loader'
-// AppContainer 是一个 HMR 必须的包裹(wrapper)组件
+let App = (location,callback) => { System.import('./App').then(component => { callback(null,component.default || component) }) }
+let Index = (location,callback) => { System.import('./index/index').then(component => { callback(null,component.default || component) })}
+let Login = (location,callback) => { System.import('./index/login').then(component => { callback(null,component.default || component) })}
 
-import App from './components/App'
-
-const render = (Component) => {
-    ReactDOM.render(
-        <AppContainer>
-            <Component />
-        </AppContainer>,
-        document.getElementById('root')
-    )
-}
-
-render(App)
-
-// 模块热替换的 API
-if (module.hot) {
-    module.hot.accept('./components/App', () => {
-        render(App)
-    })
-}
+const render = ReactDOM.render(
+    <Router history={browserHistory}>
+        <Route path="/login" getComponent={Login} />
+        <Route path="/" getComponent={App}>
+            <IndexRoute getComponent={Index} />
+            <Route path="/index" getComponent={Index} />
+        </Route>
+    </Router>,
+    document.getElementById('root')
+)
