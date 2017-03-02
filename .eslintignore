@@ -1,5 +1,2 @@
-build/*.js
-config/*.js
-src/index.js
-src/components/App.js
-src/router/index.js
+dist/**
+node_modules/**

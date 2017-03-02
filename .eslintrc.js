@@ -8,6 +8,7 @@ module.exports = {
   },
   env: {
     browser: true,
+    node:true
   },
   extends: 'eslint:recommended',
   // required to lint *.vue files
