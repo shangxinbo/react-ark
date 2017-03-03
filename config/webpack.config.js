@@ -3,6 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const config = require('./build')
+const server = require('../proxy/index')
 
 module.exports = {
     context: config.appSrc,
@@ -44,7 +45,7 @@ module.exports = {
 
         proxy: {
             "/api": {
-                target: "http://localhost:3000",
+                target: "http://localhost:4009",
                 pathRewrite: { "^/api": "" },
                 secure: false
             }

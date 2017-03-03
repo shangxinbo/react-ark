@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Account from './account'
 import { connect } from 'react-redux'
+import {Link} from 'react-router'
 import actions from '../../redux/action'
 import store from '../../redux/store'
 import logo from '../../img/logo.png'
@@ -19,13 +20,13 @@ class Header extends Component {
         return (
             <div styleName="header">
                 <h1>
-                    <a href="/index" title="集奥方舟">
+                    <Link to="/index" title="集奥方舟">
                         <img src={logo} width="148" height="43" alt="集奥方舟" title="集奥方舟" />
-                    </a>
+                    </Link>
                 </h1>
                 <ul styleName="header-content">
                     <li>
-                        <a styleName="icon news-icon" href="/message"></a>
+                        <Link styleName="icon news-icon" to="/message"></Link>
                     </li>
                     <Account />
                     <li styleName={this.props.navShow ? 'li-hover' : ''}>
