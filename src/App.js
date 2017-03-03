@@ -3,7 +3,7 @@ import { Provider, connect } from 'react-redux'
 import store from './redux/store'
 import actions from './redux/action'
 import Header from './common/header'
-import common from './css/common.css'
+import './css/common.css'
 import footer from './css/footer.css'
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
                 <div onClick={this.handleClick}>
                     <Header />
                     {this.props.children}
-                    <div className="footer">
+                    <div className={footer.footer}>
                         <p>Copyright&nbsp;&copy;&nbsp;2016&nbsp;集奥聚合</p>
                     </div>
                 </div>

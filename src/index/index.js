@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import CSSModules from 'react-css-modules'
 import style from '../css/index.css'
+import common from '../css/common.css'
 
 class App extends Component {
     render() {
         return (
-            <div styleName="warp">
+            <div className={common.warp+ ' ' +style.warp}>
                 <div styleName="main">
                     <div styleName="index-button">
                         <a href="javascript:void(0);">新客获取向导</a>
