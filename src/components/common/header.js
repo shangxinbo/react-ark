@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Account from './account'
 import { connect } from 'react-redux'
-import actions from '../redux/action'
-import store from '../redux/store'
-import logo from '../img/logo.png'
+import actions from '../../redux/action'
+import store from '../../redux/store'
+import logo from '../../img/logo.png'
 import CSSModules from 'react-css-modules'
-import style from '../css/header.css'
+import style from '../../css/header.css'
 
 class Header extends Component {
     constructor(props) {
@@ -69,5 +69,4 @@ function mapStateToProps(state) {
     }
 }
 
-
-export default CSSModules(Header,style,{allowMultiple:true}) //connect(mapStateToProps)(Header)
+export default connect(mapStateToProps)(CSSModules(Header,style,{allowMultiple:true}))

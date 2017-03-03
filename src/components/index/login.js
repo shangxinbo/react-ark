@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import CSSModules from 'react-css-modules'
-import style from '../css/login.css'
-import logo from '../img/logo-login.png'
+import '../../css/common.css'
+import style from '../../css/login.css'
+import logo from '../../img/logo-login.png'
 
 class Login extends Component {
     render() {

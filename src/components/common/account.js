@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import actions from '../redux/action'
-import store from '../redux/store'
-import logo from '../img/logo.png'
+import actions from '../../redux/action'
+import store from '../../redux/store'
+import logo from '../../img/logo.png'
+import CSSModules from 'react-css-modules'
+import style from '../../css/header.css'
 
 class Account extends Component {
     handleClick = (e) => {
@@ -11,17 +13,17 @@ class Account extends Component {
     }
     render() {
         return (
-            <li className={this.props.show?'li-hover':''}>
-                <i className="icon login-icon" onClick={this.handleClick}></i>
-                <div id="quit" className="quit">
+            <li styleName={this.props.show?'li-hover':''}>
+                <i styleName="icon login-icon" onClick={this.handleClick}></i>
+                <div id="quit" styleName="quit">
                     <p></p>
                     <a href="/users/index.html">
-                        <i className="icon icon01"></i>
+                        <i styleName="icon icon01"></i>
                         <span>账号管理</span>
                         <span>我的账号</span>
                     </a>
                     <a href="javascript:void(0)">
-                        <i className="icon icon02"></i>
+                        <i styleName="icon icon02"></i>
                         <span>退 出</span>
                     </a>
                 </div>
@@ -36,4 +38,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Account)
+export default connect(mapStateToProps)(CSSModules(Account,style,{allowMultiple:true}))

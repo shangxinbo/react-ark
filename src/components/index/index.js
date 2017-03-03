@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CSSModules from 'react-css-modules'
-import style from '../css/index.css'
-import common from '../css/common.css'
+import style from '../../css/index.css'
+import common from '../../css/common.css'
 
 class App extends Component {
     render() {

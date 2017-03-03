@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { Provider, connect } from 'react-redux'
 import store from './redux/store'
 import actions from './redux/action'
-import Header from './common/header'
+import Header from './components/common/header'
 import './css/common.css'
 import footer from './css/footer.css'
 
-class App extends Component {
+class Layout extends Component {
     handleClick = () => {
         store.dispatch(actions.toggleNav(false))
         store.dispatch(actions.toggleAccount(false))
@@ -26,4 +26,5 @@ class App extends Component {
     }
 }
 
-export default App
+export default Layout
+
