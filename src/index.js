@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { hashHistory, IndexRoute, Router, Route, Link } from 'react-router'
 
-let App = (location, callback) => { System.import('./App').then(component => { callback(null, component.default || component) }) }
-let Index = (location, callback) => { System.import('./components/index/index').then(component => { callback(null, component.default || component) }) }
-let Login = (location, callback) => { System.import('./components/index/login').then(component => { callback(null, component.default || component) }) }
-let Message = (location, callback) => { System.import('./components/message/index').then(component => { callback(null, component.default || component) }) }
+const App = (location, callback) => { System.import('./App').then(component => { callback(null, component.default || component) }) }
+const Index = (location, callback) => { System.import('./components/index/index').then(component => { callback(null, component.default || component) }) }
+const Login = (location, callback) => { System.import('./components/index/login').then(component => { callback(null, component.default || component) }) }
+const Message = (location, callback) => { System.import('./components/message/index').then(component => { callback(null, component.default || component) }) }
 
 // import App from './App'
 // import Layout from './common/layout'

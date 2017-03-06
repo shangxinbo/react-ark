@@ -4,6 +4,7 @@ import common from '../../css/common.css'
 import style from '../../css/crowd.css'
 import axios from 'axios'
 import API from '../../service/api'
+import Page from '../common/pages'
 
 class List extends Component {
     constructor(props) {
@@ -56,6 +57,7 @@ class List extends Component {
                     </div>
                     <div id="com-table" styleName="news-table">
                         {table}
+                        {Page}
                     </div>
                 </div>
             </div>
