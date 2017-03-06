@@ -6,7 +6,7 @@ const App = (location, callback) => { System.import('./App').then(component => {
 const Index = (location, callback) => { System.import('./components/index/index').then(component => { callback(null, component.default || component) }) }
 const Login = (location, callback) => { System.import('./components/index/login').then(component => { callback(null, component.default || component) }) }
 const Message = (location, callback) => { System.import('./components/message/index').then(component => { callback(null, component.default || component) }) }
-
+const Analysis = (location, callback) => { System.import('./components/analysis/index').then(component => { callback(null, component.default || component) }) }
 // import App from './App'
 // import Layout from './common/layout'
 // import Index from './index/index'
@@ -25,6 +25,7 @@ ReactDOM.render(
             <IndexRoute getComponent={Index} />
             <Route path="index" getComponent={Index} />
             <Route path="message" getComponent={Message} />
+            <Route path="report" getComponent={Analysis} />
         </Route>
         <Route path="login" getComponent={Login} />
     </Router>,
