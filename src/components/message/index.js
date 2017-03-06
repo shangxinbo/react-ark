@@ -11,19 +11,28 @@ class List extends Component {
         super(props)
         this.state = {
             list: [],
-            total:1
+            total:1,
+            current:1
         }
     }
     componentDidMount() {
+        this.getData(1)
+    }
+    getData(page){
         let _this = this
-        axios.get(API.message_list)
-            .then(function (response) {
-                _this.setState({ list: response.data.detail.messages.data })
-                _this.setState({ total: response.data.detail.total })
+        axios.get(API.message_list,{
+            params: {
+                page: page
+            }
+        }).then(function (response) {
+            _this.setState({ 
+                list: response.data.detail.messages.data,
+                total: response.data.detail.total,
+                current:page
             })
-            .catch(function (error) {
-                console.log(error)
-            })
+        }).catch(function (error) {
+            console.log(error)
+        })
     }
     render() {
         
@@ -59,7 +68,7 @@ class List extends Component {
                     </div>
                     <div id="com-table" styleName="news-table">
                         {table}
-                        <Page total={this.state.total}></Page>
+                        <Page current={this.state.current} total={this.state.total} changePage={this.getData.bind(this)}></Page>
                     </div>
                 </div>
             </div>
