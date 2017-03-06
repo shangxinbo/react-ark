@@ -6,6 +6,7 @@ import loadGif from '../../img/load.gif'
 import Filter from './filter'
 import axios from 'axios'
 import API from '../../service/api'
+import LineChart from './line'
 
 class Analysis extends Component {
     constructor(props) {
@@ -44,6 +45,7 @@ class Analysis extends Component {
                             <span>筛选人群</span>
                         </a>
                     </div>
+                    <LineChart></LineChart>
                     <div id="loading">
                         <img style={{display: 'block','margin': '60px auto'}} src={loadGif} />
                     </div>
