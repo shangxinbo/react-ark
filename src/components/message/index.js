@@ -10,7 +10,8 @@ class List extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            list: []
+            list: [],
+            total:1
         }
     }
     componentDidMount() {
@@ -18,6 +19,7 @@ class List extends Component {
         axios.get(API.message_list)
             .then(function (response) {
                 _this.setState({ list: response.data.detail.messages.data })
+                _this.setState({ total: response.data.detail.total })
             })
             .catch(function (error) {
                 console.log(error)
@@ -57,7 +59,7 @@ class List extends Component {
                     </div>
                     <div id="com-table" styleName="news-table">
                         {table}
-                        {Page}
+                        <Page total={this.state.total}></Page>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,6 @@
 var Mock = require('mockjs');
 var Random = Mock.Random;
 module.exports = function (req, res) {
-    console.log(req.header('api_token'));
     return {
         "user": {
             "id": 1,
