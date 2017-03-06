@@ -25,15 +25,15 @@ class Filter extends Component {
         if (report.filter.tagcode.length > 0 && !_.isEmpty(report.filter.fixedpros)) {
 
             let tags = report.filter.tagcode.map(item => {
-                return item.map(value => {
-                    return <span> {value.text}
+                return item.map((value,index) => {
+                    return <span key={value.code}> {value.text}
                         <i styleName="delete"></i>
                     </span>
                 })
             })
             _.forIn(report.filter.fixedpros, (value, key) => {
                 _.forIn(value, (item, index) => {
-                    tags.push(<span>{item.text}
+                    tags.push(<span key={item.code}>{item.text}
                         <i styleName="delete"></i>
                     </span>)
                 })

@@ -4,8 +4,31 @@ import common from '../../css/common.css'
 import style from '../../css/result.css'
 import loadGif from '../../img/load.gif'
 import Filter from './filter'
+import axios from 'axios'
+import API from '../../service/api'
 
 class Analysis extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            count: '',
+            chart:[]
+        }
+    }
+    componentWillMount(){
+        axios.get(API.filter_searchline,{
+            params:{
+                crowd:123,
+                filter:'',
+                model:123
+            }
+        }).then(res =>{
+            this.setState({ 
+                count: res.data.detail.cus_total,
+                chart: res.data.detail.group_res
+            })
+        })
+    }
     render() {
         return (
             <div className={common.warp}>

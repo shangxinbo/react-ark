@@ -7,8 +7,7 @@
 var Mock = require('mockjs');
 var Random = Mock.Random;
 module.exports = function (req, res) {
-    var tags = JSON.parse(req.body.tags);
-    var group = tags.group ? tags.group.name : 'default';
+    var group = 'default';
     var d = {
         cus_total: 200,
         group_res: []
