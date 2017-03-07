@@ -7,13 +7,17 @@ import Filter from './filter'
 import axios from 'axios'
 import API from '../../service/api'
 import LineChart from './line'
+import SexChart from './sex'
+import AreaChart from './area'
 
 class Analysis extends Component {
     constructor(props) {
         super(props)
         this.state = {
             count: '',
-            chart:[]
+            chart:[],
+            sex:{},
+            area:{}
         }
     }
     componentWillMount(){
@@ -27,6 +31,18 @@ class Analysis extends Component {
             this.setState({ 
                 count: res.data.detail.cus_total,
                 chart: res.data.detail.group_res
+            })
+        })
+        axios.get(API.filter_searchdim,{
+            params:{
+                crowd:123,
+                filter:'',
+                model:123
+            }
+        }).then(res =>{
+            this.setState({ 
+                sex: res.data.detail.dim_res.sex,
+                area:res.data.detail.dim_res.area
             })
         })
     }
@@ -45,11 +61,13 @@ class Analysis extends Component {
                             <span>筛选人群</span>
                         </a>
                     </div>
-                    <LineChart></LineChart>
+                    <LineChart total={this.state.count} data={this.state.chart}></LineChart>
                     <div id="loading">
                         <img style={{display: 'block','margin': '60px auto'}} src={loadGif} />
                     </div>
                     <div styleName="two-charts">
+                        <SexChart sex={this.state.sex}></SexChart>
+                        <AreaChart sex={this.state.area}></AreaChart>
                     </div>
                     <div styleName="two-charts" >
                     </div>

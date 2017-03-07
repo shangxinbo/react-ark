@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules'
 import common from '../../css/common.css'
 import style from '../../css/result.css'
 import store from '../../redux/store'
-import chart from 'echarts-for-react'
+import ReactEcharts from 'echarts-for-react'
 import _ from 'lodash'
 
 class LineChart extends Component {
@@ -13,6 +13,7 @@ class LineChart extends Component {
             color: '#60597C'
         }
         this.state = {
+            legend: [],
             option: {
                 xAxis: {
                     name: "日期",
@@ -75,10 +76,59 @@ class LineChart extends Component {
             }
         }
     }
+    componentWillReceiveProps(nextprops) {
+        let data = nextprops.data.slice(0, 5)
+        let lineColor = ['#E94D6A', '#09A88D', '#398AD6', '#B84BC8', '#CC855A']
+        let lineSybol = ['ring-red.png', 'ring-green.png', 'ring-blue.png', 'ring-violet.png', 'ring-brown.png']
+        let xArr = [], itemArr = [], legend = []
+        let option = this.state.option
+
+        for (let i = 0; i < data.length; i++) {
+            let ob = {
+                type: 'line',
+                symbolSize: 9,
+                symbol: '/static/img/' + lineSybol[i],
+                smooth: true,
+                lineStyle: {
+                    normal: {
+                        color: lineColor[i]
+                    }
+                },
+                name: data[i]['label'],
+                connectNulls: false,
+                data: []
+            }
+            xArr = []
+            for (let j = 0; j < data[i]['vals'].length; j++) {
+                xArr.push(data[i]['vals'][j]['date'])
+                ob.data.push(data[i]['vals'][j]['val'])
+            }
+            itemArr.push(ob)
+            legend.push({
+                id: i,
+                color: lineColor[i],
+                name: data[i]['label'].replace(/特别行政区|回族自治区|壮族自治区|自治区|省|市/, '')
+            })
+        }
+        option.xAxis.data = xArr
+        option.series = itemArr
+        this.setState({ option: option })
+        this.setState({ legend: legend })
+
+    }
     render() {
+
+        let legend = this.state.legend.map((value, index) => {
+            return <li styleName="checked" data-id="0" key={index}>
+                <i styleName="icon"></i>
+                <em style={{ backgroundColor: value.color }}></em>
+                <span>{value.name}</span>
+            </li>
+        })
+
         return (
             <div styleName="line-chart">
-                <chart styleName="chart-warp" option={this.state.option}></chart>
+                <ReactEcharts styleName="chart-warp" option={this.state.option}></ReactEcharts>
                 <div styleName="line-legend">
                     <div styleName="select-warp">
                         <p>客户量</p>
@@ -91,11 +141,7 @@ class LineChart extends Component {
                         </ul>
                     </div>
                     <ul styleName="line-legend-item">
-                        <li styleName="checked" data-id="0">
-                            <i styleName="icon"></i>
-                            <em></em>
-                            <span></span>
-                        </li>
+                        {legend}
                     </ul>
                 </div>
             </div>
