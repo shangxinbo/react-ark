@@ -20,7 +20,7 @@ class Login extends Component {
                     </li>
                     <li styleName="reminder">用户名或密码错误</li>
                     <li>
-                        <button>登录</button>
+                        <button onClick={this.login()}>登录</button>
                     </li>
                 </ul>
             </div>
@@ -28,4 +28,4 @@ class Login extends Component {
     }
 }
 
-export default CSSModules(Login,style,{allowMultiple:true})
+export default CSSModules(Login, style, { allowMultiple: true })

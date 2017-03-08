@@ -15,3 +15,13 @@ React 组件非常简单。你可以认为它们就是简单的函数，接受 p
 https://www.w3.org/TR/DOM-Level-3-Events/
 http://www.ituring.com.cn/article/428
 https://davidwalsh.name/event-delegate
+
+https://facebook.github.io/react/docs/installation.html
+
+While this.props is set up by React itself and this.state has a special meaning, you are free to add additional fields to the class manually if you need to store something that is not used for the visual output.
+
+If you don't use something in render(), it shouldn't be in the state.
+
+https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
+
+https://facebook.github.io/react/docs/handling-events.html

@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { Provider, connect } from 'react-redux'
+import { Provider } from 'react-redux'
 import store from './redux/store'
 import actions from './redux/action'
 import Header from './components/common/header'
-import './css/common.css'
 import footer from './css/footer.css'
 
 class Layout extends Component {
