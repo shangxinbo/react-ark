@@ -30,7 +30,7 @@ class Page extends Component {
         if (total > 1) {
             let prevBtClass = current > 1 ? 'prev' : 'prev disabled'
             let nextBtClass = current < total ? 'next' : 'next disabled'
-            let firstA = current == 1 ? <a styleName="active" href="javascript:void(0);" >1</a> : <a onClick={this.jump.bind(this,1)} href="javascript:void(0);" >1</a>
+            let firstA = current == 1 ? <a styleName="active" href="javascript:void(0);" >1</a> : <a onClick={this.jump.bind(this, 1)} href="javascript:void(0);" >1</a>
             let firstSpan = current > 3 ? <span>...</span> : ''
             let lastSpan = total > 7 && current < (total - 2) ? <span>...</span> : ''
             let a1 = current > 3 ? <a onClick={this.jump.bind(this, current - 2)} href="javascript:void(0);">{current - 2}</a> : ''
